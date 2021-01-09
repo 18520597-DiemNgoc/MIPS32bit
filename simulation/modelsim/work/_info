@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1
+vMIPS
+!i10b 1
+Z1 !s100 DaSZ><fL2McV=@9_42IaW3
+Z2 ITE6TL46:CP8h:zdCHP:IN1
+Z3 VHQdGQ8=Al]0z5@n6A>?=f0
+Z4 dF:\CE213\Practice\Lab5c\simulation\modelsim
+Z5 w1609385528
+Z6 8F:/CE213/Practice/Lab5c/simulation/modelsim/MIPS.vo
+Z7 FF:/CE213/Practice/Lab5c/simulation/modelsim/MIPS.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1609385565.787000
+!s107 F:/CE213/Practice/Lab5c/simulation/modelsim/MIPS.vo|
+Z9 !s90 -reportprogress|300|-work|work|F:/CE213/Practice/Lab5c/simulation/modelsim/MIPS.vo|
+!s101 -O0
+Z10 o-work work -O0
+Z11 n@m@i@p@s
+vTestBench
+Z12 ILK5QIhX4=5Y422R05mien2
+Z13 V>H]75T5b]zb5Z<HO:X@nj2
+R4
+Z14 w1609385559
+Z15 8F:\CE213\Practice\Lab5c\simulation\modelsim\TestBench.v
+Z16 FF:\CE213\Practice\Lab5c\simulation\modelsim\TestBench.v
+L0 3
+R8
+r1
+31
+Z17 !s90 -reportprogress|300|-work|work|F:\CE213\Practice\Lab5c\simulation\modelsim\TestBench.v|
+R10
+Z18 n@test@bench
+!i10b 1
+Z19 !s100 WM>Gi[M347K>bFlJW7EAV2
+!s85 0
+Z20 !s108 1609385565.458000
+Z21 !s107 F:\CE213\Practice\Lab5c\simulation\modelsim\TestBench.v|
+!s101 -O0

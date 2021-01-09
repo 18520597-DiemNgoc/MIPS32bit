@@ -1,0 +1,1233 @@
+Analysis & Synthesis report for MIPS
+Thu Dec 31 10:31:18 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0|altsyncram_sng1:auto_generated
+ 14. Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MUX
+ 15. Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_5bit:MUX_5bit
+ 16. Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MUX_32bit
+ 17. Parameter Settings for User Entity Instance: DataPath:D|SRAM:MEM
+ 18. Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MEMTOREG
+ 19. Parameter Settings for Inferred Entity Instance: DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "DataPath:D|ALU:ALU"
+ 22. Port Connectivity Checks: "DataPath:D"
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Dec 31 10:31:18 2020           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; MIPS                                            ;
+; Top-level Entity Name              ; MIPS                                            ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 1,439                                           ;
+;     Total combinational functions  ; 959                                             ;
+;     Dedicated logic registers      ; 518                                             ;
+; Total registers                    ; 518                                             ;
+; Total pins                         ; 251                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 1,024                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; MIPS               ; MIPS               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; ADD.v                            ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/ADD.v                                           ;         ;
+; AddPC.v                          ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/AddPC.v                                         ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/ALU.v                                           ;         ;
+; ControlUnit.v                    ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/ControlUnit.v                                   ;         ;
+; MIPS.v                           ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/MIPS.v                                          ;         ;
+; DataPath.v                       ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/DataPath.v                                      ;         ;
+; IMEM.v                           ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/IMEM.v                                          ;         ;
+; MUX2to1_5bit.v                   ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/MUX2to1_5bit.v                                  ;         ;
+; MUX2to1_32bit.v                  ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/MUX2to1_32bit.v                                 ;         ;
+; PCmem.v                          ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/PCmem.v                                         ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/RegisterFile.v                                  ;         ;
+; Shift2.v                         ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/Shift2.v                                        ;         ;
+; SignExtend.v                     ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/SignExtend.v                                    ;         ;
+; SRAM.v                           ; yes             ; User Verilog HDL File        ; F:/CE213/Practice/Lab5c/SRAM.v                                          ;         ;
+; binary.txt                       ; yes             ; Auto-Found File              ; F:/CE213/Practice/Lab5c/binary.txt                                      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_sng1.tdf           ; yes             ; Auto-Generated Megafunction  ; F:/CE213/Practice/Lab5c/db/altsyncram_sng1.tdf                          ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,439 ;
+;                                             ;       ;
+; Total combinational functions               ; 959   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 817   ;
+;     -- 3 input functions                    ; 121   ;
+;     -- <=2 input functions                  ; 21    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 924   ;
+;     -- arithmetic mode                      ; 35    ;
+;                                             ;       ;
+; Total registers                             ; 518   ;
+;     -- Dedicated logic registers            ; 518   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 251   ;
+; Total memory bits                           ; 1024  ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 550   ;
+; Total fan-out                               ; 5744  ;
+; Average fan-out                             ; 3.26  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+; |MIPS                                        ; 959 (0)           ; 518 (0)      ; 1024        ; 0            ; 0       ; 0         ; 251  ; 0            ; |MIPS                                                                               ; work         ;
+;    |ControlUnit:C|                           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|ControlUnit:C                                                                 ; work         ;
+;    |DataPath:D|                              ; 954 (0)           ; 518 (0)      ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D                                                                    ; work         ;
+;       |ALU:ALU|                              ; 196 (196)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|ALU:ALU                                                            ; work         ;
+;       |IMEM:INST_MEM|                        ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|IMEM:INST_MEM                                                      ; work         ;
+;       |MUX2to1_32bit:MEMTOREG|               ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|MUX2to1_32bit:MEMTOREG                                             ; work         ;
+;       |MUX2to1_32bit:MUX_32bit|              ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|MUX2to1_32bit:MUX_32bit                                            ; work         ;
+;       |MUX2to1_5bit:MUX_5bit|                ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|MUX2to1_5bit:MUX_5bit                                              ; work         ;
+;       |PCmem:PC_MEM|                         ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|PCmem:PC_MEM                                                       ; work         ;
+;       |RegisterFile:REG|                     ; 664 (664)         ; 512 (512)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|RegisterFile:REG                                                   ; work         ;
+;       |SRAM:MEM|                             ; 0 (0)             ; 1 (1)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|SRAM:MEM                                                           ; work         ;
+;          |altsyncram:array_reg_rtl_0|        ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0                                ; work         ;
+;             |altsyncram_sng1:auto_generated| ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0|altsyncram_sng1:auto_generated ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                             ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0|altsyncram_sng1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++--------------------------------------------+------------------------------------------------+
+; Register name                              ; Reason for Removal                             ;
++--------------------------------------------+------------------------------------------------+
+; DataPath:D|PCmem:PC_MEM|PC[1]              ; Merged with DataPath:D|PCmem:PC_MEM|PC[0]      ;
+; DataPath:D|PCmem:PC_MEM|PC[0]              ; Stuck at GND due to stuck port data_in         ;
+; DataPath:D|RegisterFile:REG|array_reg~512  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~513  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~514  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~515  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~516  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~517  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~518  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~519  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~520  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~521  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~522  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~523  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~524  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~525  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~526  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~527  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~528  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~529  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~530  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~531  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~532  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~533  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~534  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~535  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~536  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~537  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~538  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~539  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~540  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~541  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~542  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~543  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~544  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~545  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~546  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~547  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~548  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~549  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~550  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~551  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~552  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~553  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~554  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~555  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~556  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~557  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~558  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~559  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~560  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~561  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~562  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~563  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~564  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~565  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~566  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~567  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~568  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~569  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~570  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~571  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~572  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~573  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~574  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~575  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~576  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~577  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~578  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~579  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~580  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~581  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~582  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~583  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~584  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~585  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~586  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~587  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~588  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~589  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~590  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~591  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~592  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~593  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~594  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~595  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~596  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~597  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~598  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~599  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~600  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~601  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~602  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~603  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~604  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~605  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~606  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~607  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~608  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~609  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~610  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~611  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~612  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~613  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~614  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~615  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~616  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~617  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~618  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~619  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~620  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~621  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~622  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~623  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~624  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~625  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~626  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~627  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~628  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~629  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~630  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~631  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~632  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~633  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~634  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~635  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~636  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~637  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~638  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~639  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~640  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~641  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~642  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~643  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~644  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~645  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~646  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~647  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~648  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~649  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~650  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~651  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~652  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~653  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~654  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~655  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~656  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~657  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~658  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~659  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~660  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~661  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~662  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~663  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~664  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~665  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~666  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~667  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~668  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~669  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~670  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~671  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~672  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~673  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~674  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~675  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~676  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~677  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~678  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~679  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~680  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~681  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~682  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~683  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~684  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~685  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~686  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~687  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~688  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~689  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~690  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~691  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~692  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~693  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~694  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~695  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~696  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~697  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~698  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~699  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~700  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~701  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~702  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~703  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~704  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~705  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~706  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~707  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~708  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~709  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~710  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~711  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~712  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~713  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~714  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~715  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~716  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~717  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~718  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~719  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~720  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~721  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~722  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~723  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~724  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~725  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~726  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~727  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~728  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~729  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~730  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~731  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~732  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~733  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~734  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~735  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~736  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~737  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~738  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~739  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~740  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~741  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~742  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~743  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~744  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~745  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~746  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~747  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~748  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~749  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~750  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~751  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~752  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~753  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~754  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~755  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~756  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~757  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~758  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~759  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~760  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~761  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~762  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~763  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~764  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~765  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~766  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~767  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~768  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~769  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~770  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~771  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~772  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~773  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~774  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~775  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~776  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~777  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~778  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~779  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~780  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~781  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~782  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~783  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~784  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~785  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~786  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~787  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~788  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~789  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~790  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~791  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~792  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~793  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~794  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~795  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~796  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~797  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~798  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~799  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~800  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~801  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~802  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~803  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~804  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~805  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~806  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~807  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~808  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~809  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~810  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~811  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~812  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~813  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~814  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~815  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~816  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~817  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~818  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~819  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~820  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~821  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~822  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~823  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~824  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~825  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~826  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~827  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~828  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~829  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~830  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~831  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~832  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~833  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~834  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~835  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~836  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~837  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~838  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~839  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~840  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~841  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~842  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~843  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~844  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~845  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~846  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~847  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~848  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~849  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~850  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~851  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~852  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~853  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~854  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~855  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~856  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~857  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~858  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~859  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~860  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~861  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~862  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~863  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~864  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~865  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~866  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~867  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~868  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~869  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~870  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~871  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~872  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~873  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~874  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~875  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~876  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~877  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~878  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~879  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~880  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~881  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~882  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~883  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~884  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~885  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~886  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~887  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~888  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~889  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~890  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~891  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~892  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~893  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~894  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~895  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~896  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~897  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~898  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~899  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~900  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~901  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~902  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~903  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~904  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~905  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~906  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~907  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~908  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~909  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~910  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~911  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~912  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~913  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~914  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~915  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~916  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~917  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~918  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~919  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~920  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~921  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~922  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~923  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~924  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~925  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~926  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~927  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~928  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~929  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~930  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~931  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~932  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~933  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~934  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~935  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~936  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~937  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~938  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~939  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~940  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~941  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~942  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~943  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~944  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~945  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~946  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~947  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~948  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~949  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~950  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~951  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~952  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~953  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~954  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~955  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~956  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~957  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~958  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~959  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~960  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~961  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~962  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~963  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~964  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~965  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~966  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~967  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~968  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~969  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~970  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~971  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~972  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~973  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~974  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~975  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~976  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~977  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~978  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~979  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~980  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~981  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~982  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~983  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~984  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~985  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~986  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~987  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~988  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~989  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~990  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~991  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~992  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~993  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~994  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~995  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~996  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~997  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~998  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~999  ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1000 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1001 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1002 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1003 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1004 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1005 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1006 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1007 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1008 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1009 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1010 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1011 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1012 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1013 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1014 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1015 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1016 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1017 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1018 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1019 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1020 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1021 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1022 ; Lost fanout                                    ;
+; DataPath:D|RegisterFile:REG|array_reg~1023 ; Lost fanout                                    ;
+; DataPath:D|PCmem:PC_MEM|PC[7..31]          ; Lost fanout                                    ;
+; DataPath:D|SRAM:MEM|ReadData[1]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[2]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[3]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[4]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[5]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[6]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[7]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[8]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[9]~en         ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[10]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[11]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[12]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[13]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[14]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[15]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[16]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[17]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[18]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[19]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[20]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[21]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[22]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[23]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[24]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[25]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[26]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[27]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[28]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[29]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[30]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; DataPath:D|SRAM:MEM|ReadData[31]~en        ; Merged with DataPath:D|SRAM:MEM|ReadData[0]~en ;
+; Total Number of Removed Registers = 570    ;                                                ;
++--------------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 518   ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 512   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                       ;
++---------------------------------------+-------------------------------------+------+
+; Register Name                         ; Megafunction                        ; Type ;
++---------------------------------------+-------------------------------------+------+
+; DataPath:D|SRAM:MEM|ReadData[0]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[1]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[2]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[3]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[4]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[5]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[6]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[7]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[8]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[9]~reg0  ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[10]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[11]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[12]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[13]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[14]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[15]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[16]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[17]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[18]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[19]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[20]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[21]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[22]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[23]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[24]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[25]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[26]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[27]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[28]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[29]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[30]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
+; DataPath:D|SRAM:MEM|ReadData[31]~reg0 ; DataPath:D|SRAM:MEM|array_reg_rtl_0 ; RAM  ;
++---------------------------------------+-------------------------------------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 1:1                ; 64 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Add0  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Mux55 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS|ControlUnit:C|RegWrite   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Mux47 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Mux36 ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Mux34 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MIPS|DataPath:D|ALU:ALU|Mux32 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0|altsyncram_sng1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MUX ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n              ; 32    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_5bit:MUX_5bit ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MUX_32bit ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DataPath:D|SRAM:MEM ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; n              ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DataPath:D|MUX2to1_32bit:MEMTOREG ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0 ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                             ;
+; WIDTH_A                            ; 32                   ; Untyped                             ;
+; WIDTHAD_A                          ; 5                    ; Untyped                             ;
+; NUMWORDS_A                         ; 32                   ; Untyped                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 32                   ; Untyped                             ;
+; WIDTHAD_B                          ; 5                    ; Untyped                             ;
+; NUMWORDS_B                         ; 32                   ; Untyped                             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; UNUSED               ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                             ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_sng1      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                           ;
++-------------------------------------------+------------------------------------------------+
+; Name                                      ; Value                                          ;
++-------------------------------------------+------------------------------------------------+
+; Number of entity instances                ; 1                                              ;
+; Entity Instance                           ; DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
+;     -- WIDTH_A                            ; 32                                             ;
+;     -- NUMWORDS_A                         ; 32                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 32                                             ;
+;     -- NUMWORDS_B                         ; 32                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ;
++-------------------------------------------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:D|ALU:ALU"                                                                                                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Zero ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (32 bits) it drives.  The 31 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:D"                                                                                                                           ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                         ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; SignExtend ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "SignExtend[31..1]" have no fanouts ;
+; SignExtend ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Dec 31 10:31:10 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file add.v
+    Info (12023): Found entity 1: ADD
+Info (12021): Found 1 design units, including 1 entities, in source file addpc.v
+    Info (12023): Found entity 1: AddPC
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 1 design units, including 1 entities, in source file mips.v
+    Info (12023): Found entity 1: MIPS
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: DataPath
+Info (12021): Found 1 design units, including 1 entities, in source file imem.v
+    Info (12023): Found entity 1: IMEM
+Info (12021): Found 1 design units, including 1 entities, in source file instruction.v
+    Info (12023): Found entity 1: Instruction
+Info (12021): Found 1 design units, including 1 entities, in source file mux2to1_5bit.v
+    Info (12023): Found entity 1: MUX2to1_5bit
+Info (12021): Found 1 design units, including 1 entities, in source file mux2to1_32bit.v
+    Info (12023): Found entity 1: MUX2to1_32bit
+Info (12021): Found 1 design units, including 1 entities, in source file pcmem.v
+    Info (12023): Found entity 1: PCmem
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: RegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file shift2.v
+    Info (12023): Found entity 1: Shift2
+Warning (10229): Verilog HDL Expression warning at SignExtend.v(5): truncated literal to match 16 bits
+Info (12021): Found 1 design units, including 1 entities, in source file signextend.v
+    Info (12023): Found entity 1: SignExtend
+Info (12021): Found 1 design units, including 1 entities, in source file sram.v
+    Info (12023): Found entity 1: SRAM
+Warning (10236): Verilog HDL Implicit Net warning at MIPS.v(8): created implicit net for "SignExtend"
+Info (12127): Elaborating entity "MIPS" for the top level hierarchy
+Info (12128): Elaborating entity "DataPath" for hierarchy "DataPath:D"
+Warning (10739): Verilog HDL warning at DataPath.v(36): actual bit length 32 differs from formal bit length 1
+Info (12128): Elaborating entity "PCmem" for hierarchy "DataPath:D|PCmem:PC_MEM"
+Info (12128): Elaborating entity "IMEM" for hierarchy "DataPath:D|IMEM:INST_MEM"
+Warning (10850): Verilog HDL warning at IMEM.v(8): number of words (9) in memory file does not match the number of elements in the address range [0:31]
+Warning (10030): Net "rom.data_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.waddr_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.we_a" at IMEM.v(5) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "AddPC" for hierarchy "DataPath:D|AddPC:ADD_PC"
+Info (12128): Elaborating entity "ADD" for hierarchy "DataPath:D|ADD:ADD"
+Info (12128): Elaborating entity "Shift2" for hierarchy "DataPath:D|Shift2:SHIFT2"
+Info (12128): Elaborating entity "MUX2to1_32bit" for hierarchy "DataPath:D|MUX2to1_32bit:MUX"
+Info (12128): Elaborating entity "MUX2to1_5bit" for hierarchy "DataPath:D|MUX2to1_5bit:MUX_5bit"
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "DataPath:D|RegisterFile:REG"
+Info (12128): Elaborating entity "SignExtend" for hierarchy "DataPath:D|SignExtend:SignExtend1"
+Info (12128): Elaborating entity "ALU" for hierarchy "DataPath:D|ALU:ALU"
+Info (12128): Elaborating entity "SRAM" for hierarchy "DataPath:D|SRAM:MEM"
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:C"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "DataPath:D|RegisterFile:REG|array_reg" is uninferred due to asynchronous read logic
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "F:/CE213/Practice/Lab5c/db/MIPS.ram0_IMEM_257482.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "DataPath:D|SRAM:MEM|array_reg_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0"
+Info (12133): Instantiated megafunction "DataPath:D|SRAM:MEM|altsyncram:array_reg_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sng1.tdf
+    Info (12023): Found entity 1: altsyncram_sng1
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[0]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[1]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[1]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[2]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[2]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[3]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[3]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[4]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[4]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[5]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[5]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[6]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[6]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[7]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[7]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[8]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[8]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[9]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[9]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[10]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[10]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[11]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[11]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[12]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[12]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[13]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[13]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[14]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[14]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[15]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[15]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[16]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[16]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[17]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[17]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[18]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[18]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[19]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[19]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[20]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[20]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[21]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[21]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[22]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[22]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[23]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[23]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[24]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[24]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[25]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[25]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[26]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[26]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[27]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[27]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[28]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[28]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[29]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[29]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[30]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[30]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "DataPath:D|SRAM:MEM|ReadData[31]" to the node "DataPath:D|MUX2to1_32bit:MEMTOREG|Out_Mux_32bit[31]" into an OR gate
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "O_RegDst[4]" is stuck at GND
+    Warning (13410): Pin "O_INST[6]" is stuck at GND
+    Warning (13410): Pin "O_INST[7]" is stuck at GND
+    Warning (13410): Pin "O_INST[8]" is stuck at GND
+    Warning (13410): Pin "O_INST[9]" is stuck at GND
+    Warning (13410): Pin "O_INST[10]" is stuck at GND
+    Warning (13410): Pin "O_INST[12]" is stuck at GND
+    Warning (13410): Pin "O_INST[13]" is stuck at GND
+    Warning (13410): Pin "O_INST[15]" is stuck at GND
+    Warning (13410): Pin "O_INST[20]" is stuck at GND
+    Warning (13410): Pin "O_INST[25]" is stuck at GND
+    Warning (13410): Pin "O_INST[28]" is stuck at GND
+    Warning (13410): Pin "O_INST[30]" is stuck at GND
+    Warning (13410): Pin "ALUControl[1]" is stuck at GND
+    Warning (13410): Pin "ALUControl[2]" is stuck at VCC
+    Warning (13410): Pin "Branch" is stuck at GND
+    Warning (13410): Pin "Addr1[4]" is stuck at GND
+    Warning (13410): Pin "Addr2[4]" is stuck at GND
+Info (17049): 537 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file F:/CE213/Practice/Lab5c/output_files/MIPS.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1755 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 249 output pins
+    Info (21061): Implemented 1472 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 4641 megabytes
+    Info: Processing ended: Thu Dec 31 10:31:18 2020
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in F:/CE213/Practice/Lab5c/output_files/MIPS.map.smsg.
+
+
